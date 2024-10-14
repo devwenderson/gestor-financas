@@ -1,1 +1,1 @@
-# gestor-financas
+# Frontend de um projeto meu para gestão de finanças pessoais
