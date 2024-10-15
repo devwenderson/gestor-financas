@@ -8,11 +8,12 @@
   </head>
   <body>
     <div class="sidebar-container">
-      <nav class="sidebar">
+      <nav class="sidebar" id="sidebar">
         <ul>
           <li>
             <span class="logo">Minha carteira</span>
-            <button id="toggle-btn">
+            <!-- Sidebar toggle button -->
+            <button id="toggle-btn" onclick=toggleSideBar()>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -44,11 +45,12 @@
           </li>
           <li>
             <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
               <span>Metas</span>
             </a>
           </li>
           <li>
-            <button class="dropdown-btn">
+            <button class="dropdown-btn" onclick=toggleSubMenu(this)>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -74,9 +76,45 @@
               </svg>
             </button>
             <ul class="sub-menu">
-              <li><a href="#">Metas</a></li>
-              <li><a href="#">Despesas</a></li>
-              <li><a href="#">Saldos</a></li>
+              <div>
+                <li><a href="#">Metas</a></li>
+                <li><a href="#">Despesas</a></li>
+                <li><a href="#">Saldos</a></li>
+              </div>
+            </ul>
+          </li>
+          <li>
+            <button class="dropdown-btn" onclick=toggleSubMenu(this)>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="m272-440 208 120 208-120-168-97v137h-80v-137l-168 97Zm168-189v-17q-44-13-72-49.5T340-780q0-58 41-99t99-41q58 0 99 41t41 99q0 48-28 84.5T520-646v17l280 161q19 11 29.5 29.5T840-398v76q0 22-10.5 40.5T800-252L520-91q-19 11-40 11t-40-11L160-252q-19-11-29.5-29.5T120-322v-76q0-22 10.5-40.5T160-468l280-161Zm0 378L200-389v67l280 162 280-162v-67L520-251q-19 11-40 11t-40-11Zm40-469q25 0 42.5-17.5T540-780q0-25-17.5-42.5T480-840q-25 0-42.5 17.5T420-780q0 25 17.5 42.5T480-720Zm0 560Z"
+                />
+              </svg>
+              <span>Gerenciar</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"
+                />
+              </svg>
+            </button>
+            <ul class="sub-menu">
+              <div>
+                <li><a href="#">Metas</a></li>
+                <li><a href="#">Despesas</a></li>
+                <li><a href="#">Saldos</a></li>
+              </div>
             </ul>
           </li>
           <li>
@@ -99,9 +137,11 @@
       </nav>
     </div>
     <main>
-      <div>
+      <div class="container">
         <h1>Conteúdo</h1>
       </div>
     </main>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

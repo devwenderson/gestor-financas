@@ -28,7 +28,7 @@ body {
 
 .sidebar {
     height: 100vh;
-    width: 200px;
+    width: 250px;
     border-right: 1px solid var(--line-clr);
     padding: 5px 1em;
     margin-left: 20px;
@@ -37,6 +37,14 @@ body {
     position: sticky;
     top: 0;
     align-self: self-start;
+    transition: 300ms ease-in-out;
+    text-wrap: nowrap;
+}
+
+.sidebar.close {
+    padding: 5px;
+    width: 60px;
+    overflow: hidden;
 }
 
 .sidebar .logo {
@@ -74,12 +82,141 @@ body {
 .dropdown-btn {
     width: 100%;
     text-align: left;
-    background-color: none;
+    background: none;
     border: none;
     font: inherit;
     cursor: pointer;
 }
 
-main {
-    height: 200vh;
+.sidebar svg {
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+
+.sidebar a span, .sidebar .dropdown-btn span {
+    flex-grow: 1;
+}
+
+.sidebar a:hover, .sidebar .dropdown-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+.sidebar .sub-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+}
+
+.sidebar .sub-menu div {
+    overflow: hidden;
+}
+
+.sidebar .sub-menu.show {
+    grid-template-rows: 1fr;
+}
+
+.dropdown-btn svg {
+    transition: .5s ease;
+}
+
+.rotate svg:last-child {
+    rotate: 180deg;
+}
+
+.sidebar .sub-menu a {
+    padding-left: 2em;
+}
+
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: .5em;
+}
+
+#toggle-btn svg {
+    transition: rotate .5s;
+}
+
+#toggle-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+@media(max-width: 800px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+    main {
+        padding: 2em 1em 60px 1em;
+    }
+    .container {
+        border: none;
+        padding: 0;
+    }
+    .sidebar {
+        height: 60px;
+        width: 100%;
+        border-right: none;
+        border-top: 1px solid var(--line-clr);
+        padding: 0;
+        position: fixed;
+        top: unset;
+        bottom: 0;
+
+        margin-left: unset;
+        margin-right: unset;
+
+        > ul {
+            padding: 0;
+            display: grid;
+            grid-auto-columns: 60px;
+            grid-auto-flow: column;
+            align-items: center;
+            overflow-x: scroll;
+        }
+
+        ul li {
+            height: 100%;
+        }
+
+        ul a, ul .dropdown-btn {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            border-radius: 0;
+            justify-content: center;
+        }
+        
+        ul li span, ul li:first-child, .dropdown-btn svg:last-child {
+            display: none;
+        }
+
+        ul li .sub-menu.show {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            box-sizing: border-box;
+            height: 60px;
+            width: 100%;
+            background-color: var(--hover-clr);
+            border-top: 1px solid var(--line-clr);
+            display: flex;
+            justify-content: center;
+
+            > div {
+                overflow-x: auto;
+            }
+            li {
+                display: inline-flex;
+            }
+            a {
+                box-sizing: border-box;
+                padding: 1em;
+                width: auto;
+                justify-content: center;
+            }
+        }
+    }
 }
